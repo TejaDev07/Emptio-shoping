@@ -1,0 +1,10 @@
+
+.categorypanel .submenu .MuiButton-root {
+  text-transform: capitalize !important;
+}
+
+.nav li .submenu{visibility:hidden;}
+.nav li:hover .submenu{opacity: 1 !important;visibility: inherit; top:100%}
+
+.nav li .submenu li .submenu{top:0px !important;left:100% !important;opacity: 0 !important;}
+.nav li .submenu li:hover .submenu{opacity: 1 !important;}

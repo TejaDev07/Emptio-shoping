@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{margin: 0px; padding: 0px; box-sizing: border-box;}
+body{
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  background:#f5f0f0;
+}
+.container{
+    width:90%;
+    margin: auto;
+}
+
+.link:hover{color: #ff5252;}
+
+button, .button {
+  text-transform: none !important;
+}
+
+
+nav ul button:hover .MuiTouchRipple-root{background: rgba(0, 0, 0,0.1) !important;}

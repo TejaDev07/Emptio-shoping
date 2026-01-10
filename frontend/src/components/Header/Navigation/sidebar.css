@@ -1,0 +1,141 @@
+/* sidebar.css - Amazon-style category sidebar */
+
+/* Remove old MUI overrides */
+.categorypanel .MuiButton-root {
+  text-transform: capitalize !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  color: rgba(0, 0, 0, 0.9) !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+}
+
+.categorypanel .MuiButton-root:hover {
+  color: #c8583c !important;
+}
+
+/* Custom scrollbar for sidebar */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Category links styling */
+.category-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+}
+
+.category-link:hover {
+  color: #ea580c;
+}
+
+/* Subcategory styling */
+.subcategory-link {
+  text-decoration: none;
+  color: #374151;
+  display: block;
+  width: 100%;
+  padding: 8px 24px;
+  font-size: 14px;
+  border-left: 2px solid transparent;
+}
+
+.subcategory-link:hover {
+  color: #ea580c;
+  background-color: #f9fafb;
+  border-left-color: #ea580c;
+}
+
+/* Sub-subcategory styling */
+.subsubcategory-link {
+  text-decoration: none;
+  color: #6b7280;
+  display: block;
+  width: 100%;
+  padding: 6px 32px;
+  font-size: 13px;
+  border-left: 2px solid transparent;
+}
+
+.subsubcategory-link:hover {
+  color: #ea580c;
+  background-color: #f3f4f6;
+  border-left-color: #ea580c;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .sidebar-mobile {
+    width: 100% !important;
+    max-width: 320px;
+  }
+
+  /* Adjust padding for mobile */
+  .subcategory-link {
+    padding: 12px 20px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .subsubcategory-link {
+    padding: 10px 28px;
+    font-size: 15px;
+  }
+}
+
+/* Touch-friendly interactions on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .category-link,
+  .subcategory-link,
+  .subsubcategory-link {
+    min-height: 44px; /* iOS touch target size */
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Animation classes for expand/collapse */
+.expand-enter {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.expand-enter-active {
+  opacity: 1;
+  max-height: 500px;
+  transition: opacity 300ms ease-in-out, max-height 300ms ease-in-out;
+}
+
+.expand-exit {
+  opacity: 1;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.expand-exit-active {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 300ms ease-in-out, max-height 300ms ease-in-out;
+}

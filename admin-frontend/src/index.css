@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  background: #f9fafb; /* Light gray background */
+  color: #111827;
+}
+
+/* Common container */
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+/* Links */
+.link:hover {
+  color: #ff5252;
+}
+
+/* Buttons */
+button,
+.button {
+  text-transform: none !important;
+}
+
+/* Material UI ripple fix */
+nav ul button:hover .MuiTouchRipple-root {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ========================= */
+/* Admin Animations */
+/* ========================= */
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}

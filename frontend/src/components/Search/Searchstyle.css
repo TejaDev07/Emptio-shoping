@@ -1,0 +1,52 @@
+.searchBox input::placeholder {
+  color: rgb(78, 78, 236) !important;
+}
+
+.searchBox {
+  transition: all 0.2s ease-in-out;
+}
+
+.searchBox:focus-within {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.searchBox input {
+  transition: all 0.2s ease-in-out;
+}
+
+.searchBox input:focus {
+  background-color: white;
+}
+
+.searchBox button {
+  transition: all 0.2s ease-in-out;
+  background-color: #3b82f6 !important;
+  color: white !important;
+}
+
+.searchBox button:hover:not(:disabled) {
+  background-color: #2563eb !important;
+  transform: scale(1.05);
+}
+
+.searchBox button:disabled {
+  background-color: #9ca3af !important;
+  cursor: not-allowed !important;
+  opacity: 0.6;
+}
+
+.searchBox button:disabled:hover {
+  transform: none !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .searchBox {
+    height: 45px !important;
+  }
+
+  .searchBox input {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+  }
+}

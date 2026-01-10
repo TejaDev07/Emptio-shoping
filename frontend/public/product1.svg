@@ -1,0 +1,7 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#f0f0f0"/>
+  <rect x="50" y="50" width="200" height="200" fill="#e0e0e0" stroke="#ccc" stroke-width="2"/>
+  <text x="150" y="170" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#333">Smart Tablet</text>
+  <circle cx="150" cy="100" r="40" fill="#666"/>
+  <rect x="130" y="120" width="40" height="20" fill="#999"/>
+</svg>
