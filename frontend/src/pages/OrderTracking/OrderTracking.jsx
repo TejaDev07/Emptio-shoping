@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { FaBox, FaTruck, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import { useAuth } from '../../context/AuthContext';
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.VITE_API_URL;
 
 const OrderTracking = () => {
   const [orders, setOrders] = useState([]);
