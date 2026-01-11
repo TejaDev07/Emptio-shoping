@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { FaBox, FaTruck, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import { useAuth } from '../../context/AuthContext';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const OrderTracking = () => {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +39,7 @@ const OrderTracking = () => {
       setIsLoading(true);
       setError(null);
 
-      const response = await fetch(`http://localhost:5000/api/orders/guest?email=${encodeURIComponent(email)}&t=${Date.now()}`);
+      const response = await fetch(`${API_URL}/api/orders/guest?email=${encodeURIComponent(email)}&t=${Date.now()}`);
 
       if (response.ok) {
         const ordersData = await response.json();
@@ -73,9 +75,9 @@ const OrderTracking = () => {
         return;
       }
 
-      let url = 'http://localhost:5000/api/orders?t=' + Date.now();
+      let url = `${API_URL}/api/orders?t=${Date.now()}`;
       if (orderId) {
-        url = `http://localhost:5000/api/orders/${orderId}?t=${Date.now()}`;
+        url = `${API_URL}/api/orders/${orderId}?t=${Date.now()}`;
       }
       console.log('OrderTracking: Fetching from URL:', url);
 

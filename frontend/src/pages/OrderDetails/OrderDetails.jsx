@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { FaBox, FaTruck, FaCheckCircle, FaTimesCircle, FaMapMarkerAlt, FaCreditCard, FaUser, FaCalendarAlt } from 'react-icons/fa';
 import { useAuth } from '../../context/AuthContext';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const OrderDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ const OrderDetails = () => {
       setError(null);
 
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/orders/${id}?t=${Date.now()}`, {
+      const response = await fetch(`${API_URL}/api/orders/${id}?t=${Date.now()}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -105,7 +107,7 @@ const OrderDetails = () => {
     try {
       setActionLoading(true);
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/orders/${id}/cancel`, {
+      const response = await fetch(`${API_URL}/api/orders/${id}/cancel`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -139,7 +141,7 @@ const OrderDetails = () => {
     try {
       setActionLoading(true);
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/orders/${id}/return`, {
+      const response = await fetch(`${API_URL}/api/orders/${id}/return`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

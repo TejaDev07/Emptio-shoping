@@ -4,6 +4,8 @@ import { FaStar, FaShoppingCart, FaHeart } from 'react-icons/fa';
 import { useCartWishlist } from '../../context/CartWishlistContext';
 import { useAuth } from '../../context/AuthContext';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -24,7 +26,7 @@ const ProductDetail = () => {
       setLoading(true);
       setError(null);
       console.log('🔍 Frontend: Fetching product with ID:', id);
-      const response = await fetch(`http://localhost:5000/api/products/${id}`);
+      const response = await fetch(`${API_URL}/api/products/${id}`);
 
       if (response.ok) {
         const productData = await response.json();
