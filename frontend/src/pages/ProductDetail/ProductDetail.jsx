@@ -27,7 +27,7 @@ const ProductDetail = () => {
       setError(null);
       console.log('🔍 Frontend: Fetching product with ID:', id);
       const response = await fetch(`${API_URL}/api/products/${id}`);
-
+     console.log("API URL =", process.env.REACT_APP_API_URL);
       if (response.ok) {
         const productData = await response.json();
         console.log('✅ Frontend: Product fetched successfully:', productData._id);
