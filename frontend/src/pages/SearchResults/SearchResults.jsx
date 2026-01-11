@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q') || '';
@@ -19,7 +21,7 @@ const SearchResults = () => {
     try {
       setIsLoading(true);
       setError(null);
-      const response = await fetch('/api/products');
+      const response = await fetch(`${API_URL}/api/products`);
       if (response.ok) {
         const productData = await response.json();
         setProducts(productData);

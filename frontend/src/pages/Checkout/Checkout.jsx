@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCartWishlist } from '../../context/CartWishlistContext';
 import { useAuth } from '../../context/AuthContext';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Checkout = () => {
   const { cart, clearCart } = useCartWishlist();
   const { user, isAuthenticated } = useAuth();
@@ -68,7 +70,7 @@ const Checkout = () => {
         userId: isAuthenticated() ? user._id : null,
       };
 
-      const response = await fetch('/api/orders', {
+      const response = await fetch(`${API_URL}/api/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

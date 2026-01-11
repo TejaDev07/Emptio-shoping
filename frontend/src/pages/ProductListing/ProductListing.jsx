@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from '../../components/ProductCard';
 import { useParams } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ProductListing = () => {
   const params = useParams();
   const { category, subcategory, subsubcategory } = params || {};
@@ -26,7 +28,7 @@ const ProductListing = () => {
       const params = new URLSearchParams();
       if (category) params.append('category', category);
       const queryString = params.toString();
-      const url = `/api/products${queryString ? `?${queryString}` : ''}`;
+      const url = `${API_URL}/api/products${queryString ? `?${queryString}` : ''}`;
 
       console.log('🔍 Frontend: Fetching products from:', url);
 

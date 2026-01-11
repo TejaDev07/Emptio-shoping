@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import HomeSlider from '../../components/HomeSlider'
 import ProductCard from '../../components/ProductCard'
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +16,7 @@ const Home = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/products/featured');
+      const response = await fetch(`${API_URL}/api/products/featured`);
       if (response.ok) {
         const products = await response.json();
         setFeaturedProducts(products);
