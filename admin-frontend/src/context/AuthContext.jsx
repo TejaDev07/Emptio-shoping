@@ -20,8 +20,14 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     const adminUser = localStorage.getItem('adminUser');
     
-    if (token && adminUser) {
-      // User is already logged in
+    if (token && token.startsWith('mock-admin-token-')) {
+      // Remove old mock tokens
+      localStorage.removeItem('token');
+      localStorage.removeItem('adminUser');
+      localStorage.removeItem('adminAuthenticated');
+      setUser(null);
+    } else if (token && adminUser) {
+      // User is already logged in with real token
       try {
         const userData = JSON.parse(adminUser);
         setUser(userData);
@@ -29,6 +35,7 @@ export const AuthProvider = ({ children }) => {
         console.error('Error parsing admin user data:', error);
         localStorage.removeItem('token');
         localStorage.removeItem('adminUser');
+        localStorage.removeItem('adminAuthenticated');
       }
     }
     
@@ -43,6 +50,7 @@ export const AuthProvider = ({ children }) => {
       setUser(user);
       localStorage.setItem('token', token);
       localStorage.setItem('adminUser', JSON.stringify(user));
+      localStorage.setItem('adminAuthenticated', 'true');
       
       return { user, token };
     } catch (error) {

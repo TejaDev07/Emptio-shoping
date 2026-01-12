@@ -31,8 +31,6 @@ const AdminLogin = () => {
     try {
       await login(formData.email, formData.password);
       
-      localStorage.setItem('adminAuthenticated', 'true');
-      
       showNotification('Login successful! Welcome to Admin Panel', 'success');
       navigate('/dashboard');
     } catch (error) {

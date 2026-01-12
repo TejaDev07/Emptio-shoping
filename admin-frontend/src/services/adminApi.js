@@ -50,8 +50,7 @@ export const adminApi = {
   // Auth - Login to get real JWT token
   login: async (email, password) => {
     try {
-      // For admin login, we need to authenticate with the real backend
-      // First try to login as admin user from your user database
+      // Login with real backend
       const response = await axios.post(`${API_BASE_URL}/auth/login`, {
         email,
         password
@@ -66,20 +65,6 @@ export const adminApi = {
 
       return { user, token };
     } catch (error) {
-      // If backend login fails, fall back to mock for demo
-      if (email === 'admin@emptio.com' && password === 'Admin@123') {
-        const user = {
-          email: email,
-          role: 'admin',
-          name: 'Admin User',
-          _id: 'admin-mock-id'
-        };
-        const token = 'mock-admin-token-' + Date.now();
-        
-        localStorage.setItem('token', token);
-        
-        return { user, token };
-      }
       throw new Error(error.response?.data?.message || 'Login failed');
     }
   },
