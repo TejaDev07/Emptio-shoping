@@ -19,8 +19,8 @@ app.use(cors({
     'http://localhost:5175', 
     'http://localhost:5176',
     'https://emptio-shoping.vercel.app',
-    'https://emptio-shoping-tozz-91snvx4z4-tejas-projects-b09c0799.vercel.app',
-    'https://emptio-shoping-tozz.vercel.app'
+    'https://emptio-shoping-37lzqll2g-tejas-projects-b09c0799.vercel.app',
+    'https://emptio-shoping-tozz-91snvx4z4-tejas-projects-b09c0799.vercel.app'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
