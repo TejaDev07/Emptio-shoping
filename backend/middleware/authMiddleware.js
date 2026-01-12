@@ -12,19 +12,7 @@ const protect = async (req, res, next) => {
       // Get token from header
       token = req.headers.authorization.split(' ')[1];
 
-      // Check if it's a mock token for development
-      if (token && token.startsWith('mock-admin-token-')) {
-        // Mock admin user for development
-        req.user = {
-          _id: 'admin-mock-id',
-          name: 'Admin User',
-          email: 'admin@emptio.com',
-          role: 'admin'
-        };
-        return next();
-      }
-
-      // Verify real JWT token
+      // Verify JWT token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
       // Get user from the token
