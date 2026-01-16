@@ -31,8 +31,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-/* IMPORTANT: Preflight */
-app.options('*', cors());
 
 /* Body parsers */
 app.use(express.json());
