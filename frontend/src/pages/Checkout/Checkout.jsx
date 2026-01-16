@@ -80,15 +80,19 @@ const Checkout = () => {
 
       const data = await response.json();
 
-      if (response.ok) {
-        // Clear cart and redirect to success page
-        clearCart();
-        navigate('/order-success', { state: { order: data.order } });
-      } else {
-        setError(data.message || 'Failed to place order');
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to place order');
       }
+
+      if (!data.order) {
+        throw new Error('Invalid order response from server');
+      }
+
+      // Clear cart and redirect to success page
+      clearCart();
+      navigate('/order-success', { state: { order: data.order } });
     } catch (err) {
-      setError('Network error. Please try again.');
+      setError(err.message || 'Failed to place order. Please try again.');
     } finally {
       setLoading(false);
     }

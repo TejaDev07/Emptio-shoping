@@ -22,6 +22,7 @@ import Privacy from './pages/Privacy/Privacy';
 import OrderSuccess from './pages/OrderSuccess/OrderSuccess';
 import OrderTracking from './pages/OrderTracking/OrderTracking';
 import OrderDetails from './pages/OrderDetails/OrderDetails';
+import Profile from './pages/Profile/Profile';
 import Notification from './components/Notification';
 import "./App.css"
 
@@ -48,6 +49,7 @@ function AppContent() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/Order-tracking" element={<OrderTracking />} />
             <Route path="/order-tracking/:orderId" element={<OrderTracking />} />
             <Route path="/order/:id" element={<OrderDetails />} />
